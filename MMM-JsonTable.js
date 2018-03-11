@@ -32,6 +32,7 @@ Module.register("MMM-JsonTable", {
 		if (notification === "JSON_RESULT") {
 			console.log(payload);
 			this.jsonData = payload;
+			this.updateDom(500);
 		}
 	},
 
