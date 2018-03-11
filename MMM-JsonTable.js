@@ -30,7 +30,6 @@ Module.register("MMM-JsonTable", {
 
 	socketNotificationReceived: function (notification, payload) {
 		if (notification === "JSON_RESULT") {
-			console.log(payload);
 			this.jsonData = payload;
 			this.updateDom(500);
 		}
@@ -39,6 +38,7 @@ Module.register("MMM-JsonTable", {
 	// Override dom generator.
 	getDom: function () {
 		var wrapper = document.createElement("div");
+		wrapper.className = "small";
 
 		if (!this.jsonData) {
 			wrapper.innerHTML = "Awaiting json data...";
@@ -60,9 +60,7 @@ Module.register("MMM-JsonTable", {
 
 	getTableRow: function (jsonObject) {
 		var row = document.createElement("tr");
-		console.log(jsonObject);
 		for (var key in jsonObject) {
-			console.log(key);
 			var cell = document.createElement("td");
 			var cellText = document.createTextNode(jsonObject[key]);
 			cell.appendChild(cellText)
