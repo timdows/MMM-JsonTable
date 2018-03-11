@@ -64,7 +64,7 @@ Module.register("MMM-JsonTable", {
 		for (var key in jsonObject) {
 			console.log(key);
 			var cell = document.createElement("td");
-			var cellText = document.createTextNode("abc" + key);
+			var cellText = document.createTextNode(jsonObject[key]);
 			cell.appendChild(cellText)
 			row.appendChild(cell);
 		}
