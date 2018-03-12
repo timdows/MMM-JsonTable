@@ -72,7 +72,7 @@ Module.register("MMM-JsonTable", {
 	// Format a date string or return the input
 	getFormattedValue: function (input) {
 		var m = moment(input);
-		if (m.isValid()) {
+		if (typeof input === "string" && m.isValid()) {
 			if (m.isSame(new Date(), "day")) {
 				return m.format("HH:mm:ss");
 			}
