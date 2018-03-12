@@ -77,7 +77,7 @@ Module.register("MMM-JsonTable", {
 				return m.format("HH:mm:ss");
 			}
 			else {
-				return m.format("yyyy-MM-dd");
+				return m.format("YYYY-MM-DD");
 			}
 		}
 		else {
