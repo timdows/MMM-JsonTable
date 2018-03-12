@@ -38,7 +38,7 @@ Module.register("MMM-JsonTable", {
 	// Override dom generator.
 	getDom: function () {
 		var wrapper = document.createElement("div");
-		wrapper.className = "small";
+		wrapper.className = "xsmall";
 
 		if (!this.jsonData) {
 			wrapper.innerHTML = "Awaiting json data...";
@@ -63,10 +63,26 @@ Module.register("MMM-JsonTable", {
 		for (var key in jsonObject) {
 			var cell = document.createElement("td");
 			var cellText = document.createTextNode(jsonObject[key]);
-			cell.appendChild(cellText)
+			cell.appendChild(getFormattedValue(cellText));
 			row.appendChild(cell);
 		}
 		return row;
+	},
+
+	// Format a date string or return the input
+	getFormattedValue: function (input) {
+		var m = moment(input);
+		if (m.isValid()) {
+			if (m.isSame(new Date(), "day")) {
+				return m.format("HH:mm:ss");
+			}
+			else {
+				return m.format("yyyy-MM-dd");
+			}
+		}
+		else {
+			return input;
+		}
 	}
 
 });
