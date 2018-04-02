@@ -50,7 +50,7 @@ Module.register("MMM-JsonTable", {
 		
 		var items = [];
 		if (this.config.arrayName) {
-			items = this.jsonData[arrayName];
+			items = this.jsonData[this.config.arrayName];
 		}
 		else {
 			items = this.jsonData;
