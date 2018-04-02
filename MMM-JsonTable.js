@@ -6,8 +6,9 @@ Module.register("MMM-JsonTable", {
 
 	// Default module config.
 	defaults: {
-		text: "Hello World!",
 		url: "",
+		arrayName: null,
+		tryFormatDate: false,
 		updateInterval: 15000
 	},
 
@@ -70,7 +71,16 @@ Module.register("MMM-JsonTable", {
 		var row = document.createElement("tr");
 		for (var key in jsonObject) {
 			var cell = document.createElement("td");
-			var cellText = document.createTextNode(this.getFormattedValue(jsonObject[key]));
+			
+			var valueToDisplay = "";
+			if (this.config.tryFormatDate) {
+				valueToDisplay = this.getFormattedValue(jsonObject[key]);
+			}
+			else {
+				valueToDisplay = jsonObject[key];
+			}
+
+			var cellText = document.createTextNode(valueToDisplay);
 			cell.appendChild(cellText);
 			row.appendChild(cell);
 		}
