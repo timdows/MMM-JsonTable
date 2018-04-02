@@ -52,7 +52,7 @@ Configuration:
 }
 ```
 
-## Example 1
+## Example 2
 
 ![](example2.png)
 
