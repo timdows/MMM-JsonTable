@@ -48,7 +48,15 @@ Module.register("MMM-JsonTable", {
 		var table = document.createElement("table");
 		var tbody = document.createElement("tbody");
 		
-		this.jsonData.currentUsages.forEach(element => {
+		var items = [];
+		if (this.config.arrayName) {
+			items = this.jsonData[arrayName];
+		}
+		else {
+			items = this.jsonData;
+		}
+
+		items.forEach(element => {
 			var row = this.getTableRow(element);
 			tbody.appendChild(row);
 		});
