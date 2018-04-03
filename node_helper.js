@@ -11,17 +11,18 @@ module.exports = NodeHelper.create({
 
 		request({ url: url, method: 'GET' }, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
-				var result = JSON.parse(body);
-				self.sendSocketNotification('JSON_RESULT', result);
+				var json = JSON.parse(body);
+				// Send the json data back with the url to distinguish it on the receiving part
+				self.sendSocketNotification("MMM-JsonTable_JSON_RESULT", {url: url, data: json});
 			}
 		});
 
 	},
 
 	//Subclass socketNotificationReceived received.
-	socketNotificationReceived: function (notification, payload) {
-		if (notification === 'GET_JSON') {
-			this.getJson(payload);
+	socketNotificationReceived: function (notification, url) {
+		if (notification === "MMM-JsonTable_GET_JSON") {
+			this.getJson(url);
 		}
 	}
 });

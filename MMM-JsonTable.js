@@ -26,13 +26,17 @@ Module.register("MMM-JsonTable", {
 
 	// Request node_helper to get json from url
 	getJson: function () {
-		this.sendSocketNotification('GET_JSON', this.config.url);
+		this.sendSocketNotification("MMM-JsonTable_GET_JSON", this.config.url);
 	},
 
 	socketNotificationReceived: function (notification, payload) {
-		if (notification === "JSON_RESULT") {
-			this.jsonData = payload;
-			this.updateDom(500);
+		if (notification === "MMM-JsonTable_JSON_RESULT") {
+			// Only continue if the notification came from the request we made
+			if (payload.url === this.config.url)
+			{
+				this.jsonData = payload.data;
+				this.updateDom(500);
+			}
 		}
 	},
 
