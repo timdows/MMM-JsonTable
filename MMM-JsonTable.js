@@ -103,7 +103,8 @@ Module.register("MMM-JsonTable", {
 	getFormattedValue: function (input) {
 		var m = moment(input);
 		if (typeof input === "string" && m.isValid()) {
-			if (m.isSame(new Date(), "day")) {
+			// Show a formatted time if it occures today
+			if (m.isSame(new Date(), "day") && m.hours() !== 0 && m.minutes() !== 0 && m.seconds() !== 0) {
 				return m.format("HH:mm:ss");
 			}
 			else {
