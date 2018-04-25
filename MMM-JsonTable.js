@@ -32,6 +32,7 @@ Module.register("MMM-JsonTable", {
 	socketNotificationReceived: function (notification, payload) {
 		if (notification === "MMM-JsonTable_JSON_RESULT") {
 			// Only continue if the notification came from the request we made
+			// This way we can load the module more than once
 			if (payload.url === this.config.url)
 			{
 				this.jsonData = payload.data;
@@ -59,6 +60,13 @@ Module.register("MMM-JsonTable", {
 		}
 		else {
 			items = this.jsonData;
+		}
+
+		// Check if items is of type array
+		if (!(items instanceof Array)) {
+			wrapper.innerHTML = "Json data is not of type array! " +
+				"Maybe the config arrayName is not used and should be, or is configured wrong";
+			return wrapper;
 		}
 
 		items.forEach(element => {
