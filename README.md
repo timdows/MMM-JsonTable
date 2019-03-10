@@ -116,6 +116,38 @@ Configuration:
 }
 ```
 
+## Example 3 (with font awesome icons)
+
+![](https://user-images.githubusercontent.com/1011699/53985507-104ecc00-411c-11e9-9ca4-c994f0ae62e1.png)
+
+Raw json response:
+
+```json
+{
+   "cups":[  
+      {  
+         "icon":"fa-calendar",
+         "data":"Senaste bryggning",
+         "value":"2019-03-07",
+         "type":""
+      },
+      {  
+         "icon":"fa-clock-o",
+         "data":"Klockan",
+         "value":"17:32:06",
+         "type":""
+      },
+      {  
+         "icon":"fa-coffee",
+         "data":"Totalt antal bryggda koppar",
+         "value":60,
+         "type":"st"
+      },
+      ...
+   ]
+}
+```
+
 ## Installation
 ````
 git clone https://github.com/timdows/MMM-JsonTable.git
