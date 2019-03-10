@@ -85,7 +85,10 @@ Module.register("MMM-JsonTable", {
 			var cell = document.createElement("td");
 			
 			var valueToDisplay = "";
-			if (this.config.tryFormatDate) {
+			if (key === "icon") {
+				cell.classList.add("fa", jsonObject[key]);
+			}
+			else if (this.config.tryFormatDate) {
 				valueToDisplay = this.getFormattedValue(jsonObject[key]);
 			}
 			else {
