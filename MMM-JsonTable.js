@@ -8,6 +8,7 @@ Module.register("MMM-JsonTable", {
 	defaults: {
 		url: "",
 		arrayName: null,
+		keepColumns: [],
 		tryFormatDate: false,
 		updateInterval: 15000
 	},
@@ -92,7 +93,9 @@ Module.register("MMM-JsonTable", {
 				valueToDisplay = this.getFormattedValue(jsonObject[key]);
 			}
 			else {
-				valueToDisplay = jsonObject[key];
+				if ( this.config.keepColumns.length == 0 || this.config.keepColumns.indexOf(key) >= 0 ){
+					valueToDisplay = jsonObject[key];
+				}
 			}
 
 			var cellText = document.createTextNode(valueToDisplay);
