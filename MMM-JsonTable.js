@@ -9,7 +9,7 @@ Module.register("MMM-JsonTable", {
 		url: "",
 		arrayName: null,
 		keepColumns: [],
-		size: null,
+		size: 0,
 		tryFormatDate: false,
 		updateInterval: 15000
 	},
@@ -101,18 +101,8 @@ Module.register("MMM-JsonTable", {
 
 			var cellText = document.createTextNode(valueToDisplay);
 
-			if ( this.config.size.toUpperCase() == 1 ){
-				var h = document.createElement("H1");
-				h.appendChild(cellText)
-				cell.appendChild(h);
-			}
-			else if ( this.config.size.toUpperCase() == 2 ){
-				var h = document.createElement("H2");
-				h.appendChild(cellText)
-				cell.appendChild(h);
-			}
-			else if ( this.config.size.toUpperCase() == 3 ){
-				var h = document.createElement("H3");
+			if ( this.config.size > 0 && this.config.size < 9 ){
+				var h = document.createElement("H" + this.config.size );
 				h.appendChild(cellText)
 				cell.appendChild(h);
 			}
