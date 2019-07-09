@@ -8,6 +8,8 @@ Module.register("MMM-JsonTable", {
 	defaults: {
 		url: "",
 		arrayName: null,
+		keepColumns: [],
+		size: 0,
 		tryFormatDate: false,
 		updateInterval: 15000
 	},
@@ -92,11 +94,23 @@ Module.register("MMM-JsonTable", {
 				valueToDisplay = this.getFormattedValue(jsonObject[key]);
 			}
 			else {
-				valueToDisplay = jsonObject[key];
+				if ( this.config.keepColumns.length == 0 || this.config.keepColumns.indexOf(key) >= 0 ){
+					valueToDisplay = jsonObject[key];
+				}
 			}
 
 			var cellText = document.createTextNode(valueToDisplay);
-			cell.appendChild(cellText);
+
+			if ( this.config.size > 0 && this.config.size < 9 ){
+				var h = document.createElement("H" + this.config.size );
+				h.appendChild(cellText)
+				cell.appendChild(h);
+			}
+			else
+			{
+				cell.appendChild(cellText);
+			}
+
 			row.appendChild(cell);
 		}
 		return row;

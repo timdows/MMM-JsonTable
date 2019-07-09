@@ -158,5 +158,7 @@ git clone https://github.com/timdows/MMM-JsonTable.git
 | --- | --- | --- |
 | url | "" | The full url to get the json response from |
 | arrayName | null | Define the name of the variable that holds the array to display |
+| keepColumns | [] | Columns on json will be showed |
 | tryFormatDate | false | For every column it checks if a valid DateTime is given, and then formats it to HH:mm:ss if it is today or YYYY-MM-DD otherwise |
+| size | 0-3 | Text size at table, 0 is default, and 3 is H3 |
 | updateInterval | 15000 | Milliseconds between the refersh |
