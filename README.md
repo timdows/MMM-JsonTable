@@ -148,6 +148,61 @@ Raw json response:
 }
 ```
 
+## Example 4 (with descriptive row)
+
+![](example4.png)
+
+Raw json response:
+
+```json
+{
+   "deviceKwhUsages":[  
+      {
+      "name": "Studie - MainDown",
+      "today": 0,
+      "todayFormatted": "0",
+      "thisWeek": 1.27,
+      "thisWeekFormatted": "1,27",
+      "lastWeek": 7,
+      "lastWeekFormatted": "7,00",
+      "thisMonth": 17.41,
+      "thisMonthFormatted": "17,41",
+      "lastMonth": 30.58,
+      "tLastMonthFormatted": "30,58"
+    },
+    {
+      "name": "BoilerPower",
+      "today": 0,
+      "todayFormatted": "0",
+      "thisWeek": 1.9,
+      "thisWeekFormatted": "1,90",
+      "lastWeek": 13.3,
+      "lastWeekFormatted": "13,30",
+      "thisMonth": 30.44,
+      "thisMonthFormatted": "30,44",
+      "lastMonth": 54.99,
+      "tLastMonthFormatted": "54,99"
+    },
+      ...
+   ]
+}
+```
+
+Configuration:
+
+```javascript
+{
+	module: 'MMM-JsonTable',
+	position: 'top_right',
+	header: 'HouseDB Kwh Statistics',
+	config: {
+		url: 'https://xyz/abc/get.json',
+		arrayName: 'deviceKwhUsages',
+		descriptiveRow: '<tr><td>Name</td><td>Today</td><td>ThisWeek</td><td>LastWeek</td><td>ThisMonth</td><td>LastMonth</td></tr>'
+	}
+}
+```
+
 ## Installation
 ````
 git clone https://github.com/timdows/MMM-JsonTable.git
@@ -162,3 +217,4 @@ git clone https://github.com/timdows/MMM-JsonTable.git
 | tryFormatDate | false | For every column it checks if a valid DateTime is given, and then formats it to HH:mm:ss if it is today or YYYY-MM-DD otherwise |
 | size | 0-3 | Text size at table, 0 is default, and 3 is H3 |
 | updateInterval | 15000 | Milliseconds between the refersh |
+| descriptiveRow | "" | Complete html table row that will be added above the array data |
