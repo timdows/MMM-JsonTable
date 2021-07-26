@@ -11,7 +11,8 @@ Module.register("MMM-JsonTable", {
 		keepColumns: [],
 		size: 0,
 		tryFormatDate: false,
-		updateInterval: 15000
+		updateInterval: 15000,
+		descriptiveRow: null
 	},
 
 	start: function () {
@@ -75,6 +76,12 @@ Module.register("MMM-JsonTable", {
 			var row = this.getTableRow(element);
 			tbody.appendChild(row);
 		});
+		
+		// Add in Descriptive Row Header
+		if (this.config.descriptiveRow) {
+			var header = table.createTHead();
+			header.innerHTML = this.config.descriptiveRow;
+		}
 
 		table.appendChild(tbody);
 		wrapper.appendChild(table);
