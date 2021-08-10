@@ -7,6 +7,8 @@ For every column it checks if a valid DateTime is given, and then formats it to 
 ## Installation
 ````
 git clone https://github.com/timdows/MMM-JsonTable.git
+cd MMM-JsonTable
+npm install
 ````
 
 ## Config Options
