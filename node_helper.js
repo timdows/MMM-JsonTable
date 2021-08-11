@@ -1,5 +1,5 @@
 var NodeHelper = require('node_helper');
-var request = require('request');
+var fetch = require('node-fetch');
 
 module.exports = NodeHelper.create({
 	start: function () {
@@ -9,12 +9,9 @@ module.exports = NodeHelper.create({
 	getJson: function (url) {
 		var self = this;
 
-		request({ url: url, method: 'GET' }, function (error, response, body) {
-			if (!error && response.statusCode == 200) {
-				var json = JSON.parse(body);
-				// Send the json data back with the url to distinguish it on the receiving part
-				self.sendSocketNotification("MMM-JsonTable_JSON_RESULT", {url: url, data: json});
-			}
+		fetch(url).then(response => response.json()).then(json => {
+			// Send the json data back with the url to distinguish it on the receiving part
+			self.sendSocketNotification("MMM-JsonTable_JSON_RESULT", {url: url, data: json});
 		});
 
 	},
