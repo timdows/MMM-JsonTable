@@ -1,6 +1,6 @@
 {
   "name": "mmm-btcfees",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module for the MagicMirror project which creates a btc fees table",
   "dependencies": {
     "node-fetch": "^2.6.1"
