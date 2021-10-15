@@ -104,7 +104,9 @@ Module.register("MMM-BTCFees", {
 			else {
 				if ( this.config.keepColumns.length == 0 || this.config.keepColumns.indexOf(key) >= 0 ){
 					valueToDisplay = jsonObject[key];
-					nameToDisplay = Object.keys(key);
+					Log.info('key in 107'+key);  
+					Log.info('jsonObject in 108'+jsonObject);  
+					nameToDisplay = Object.entries(key);
 
 				}
 			}
