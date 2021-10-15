@@ -92,6 +92,7 @@ Module.register("MMM-BTCFees", {
 		var row = document.createElement("tr");
 		for (var key in jsonObject) {
 			var cell = document.createElement("td");
+			var cell2 = document.createElement("td");
 			
 			var valueToDisplay = "";
 			var nameToDisplay = "";
@@ -120,14 +121,15 @@ Module.register("MMM-BTCFees", {
 				var h2 = document.createElement("H" + this.config.size );
 				h2.appendChild(cellName)
 				cell.appendChild(h);
-				cell.appendChild(h2);
+				cell2.appendChild(h2);
 			}
 			else
 			{
 				cell.appendChild(cellText);
-				cell.appendChild(cellName);
+				cell2.appendChild(cellName);
 			}
 
+			row.appendChild(cell2);
 			row.appendChild(cell);
 		}
 		return row;
