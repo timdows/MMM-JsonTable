@@ -1,8 +1,8 @@
 'use strict';
 
-Module.register("MMM-JsonTable", {
+Module.register("MMM-BTCFees", {
 
-	jsonData: null,
+	jsonData: "https://mempool.space/api/v1/fees/recommended",
 
 	// Default module config.
 	defaults: {
@@ -29,11 +29,11 @@ Module.register("MMM-JsonTable", {
 
 	// Request node_helper to get json from url
 	getJson: function () {
-		this.sendSocketNotification("MMM-JsonTable_GET_JSON", this.config.url);
+		this.sendSocketNotification("MMM-BTCFees_GET_JSON", this.config.url);
 	},
 
 	socketNotificationReceived: function (notification, payload) {
-		if (notification === "MMM-JsonTable_JSON_RESULT") {
+		if (notification === "MMM-BTCFees_JSON_RESULT") {
 			// Only continue if the notification came from the request we made
 			// This way we can load the module more than once
 			if (payload.url === this.config.url)
@@ -94,6 +94,7 @@ Module.register("MMM-JsonTable", {
 			var cell = document.createElement("td");
 			
 			var valueToDisplay = "";
+			var nameToDisplay = "";
 			if (key === "icon") {
 				cell.classList.add("fa", jsonObject[key]);
 			}
@@ -103,19 +104,26 @@ Module.register("MMM-JsonTable", {
 			else {
 				if ( this.config.keepColumns.length == 0 || this.config.keepColumns.indexOf(key) >= 0 ){
 					valueToDisplay = jsonObject[key];
+					nameToDisplay = Object.keys(key);
+
 				}
 			}
 
 			var cellText = document.createTextNode(valueToDisplay);
+			var cellName = document.createTextNode(nameToDisplay);
 
 			if ( this.config.size > 0 && this.config.size < 9 ){
 				var h = document.createElement("H" + this.config.size );
 				h.appendChild(cellText)
+				var h2 = document.createElement("H" + this.config.size );
+				h2.appendChild(cellName)
 				cell.appendChild(h);
+				cell.appendChild(h2);
 			}
 			else
 			{
 				cell.appendChild(cellText);
+				cell.appendChild(cellName);
 			}
 
 			row.appendChild(cell);

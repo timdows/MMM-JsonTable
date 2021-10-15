@@ -1,7 +1,7 @@
 {
-  "name": "mmm-jsontable",
+  "name": "mmm-btcfees",
   "version": "1.0.0",
-  "description": "A module for the MagicMirror project which creates a table filled with a list gathered from a json request.",
+  "description": "A module for the MagicMirror project which creates a btc fees table",
   "dependencies": {
     "node-fetch": "^2.6.1"
   }

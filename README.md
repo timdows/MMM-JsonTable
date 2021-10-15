@@ -1,8 +1,5 @@
-# MMM-JsonTable
-A module for the MagicMirror project which creates a table filled with a list gathered from a json request.
-
-All the variables of the objects in the array are represented by a table column.
-For every column it checks if a valid DateTime is given, and then formats it to HH:mm:ss if it is today or YYYY-MM-DD otherwise.
+# MMM-BTCFees
+A module for the MagicMirror project which creates a table filled with a list gathered from a json request to show BTC Fees.
 
 ## Installation
 ````
@@ -25,7 +22,6 @@ npm install
 ## Example 1
 End result:
 
-![](example1.png)
 
 Raw json response:
 
