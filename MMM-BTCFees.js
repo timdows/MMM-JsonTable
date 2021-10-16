@@ -33,12 +33,9 @@ Module.register("MMM-BTCFees", {
 
 	// Request node_helper to get json from url
 	getJson: function () {
-		this.sendSocketNotification("MMM-BTCFees_GET_JSON", this.config.url);
+		this.sendSocketNotification("MMM-BTCFees_GET_JSON", this.config.url, this.config.urlBtc);
 	},
 
-	getBtc: function () {
-		this.sendSocketNotification("MMM-BTCFees_GET_BTC", this.config.urlBtc);
-	},
 
 	socketNotificationReceived: function (notification, payload) {
 		if (notification === "MMM-BTCFees_JSON_RESULT") {
@@ -168,7 +165,7 @@ Module.register("MMM-BTCFees", {
 		if (typeof input === "number" ) {
 			
 			let price = 0;
-			price = (input*getBtc(this.config.urlBtc)).toFixed(2);
+			price = (input*btcData).toFixed(2);
 			return price;
 		}
 		else {

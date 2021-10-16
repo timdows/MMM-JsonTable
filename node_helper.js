@@ -6,7 +6,7 @@ module.exports = NodeHelper.create({
 		console.log('MMM-BTCFees helper started...');
 	},
 
-	getJson: function (url) {
+	getJson: function (url, urlBtc) {
 		var self = this;
 
 		var json_data="";
@@ -17,29 +17,19 @@ module.exports = NodeHelper.create({
 			for(var i in json_data){
 				result.push([i, json_data [i]]);
 			}
-			self.sendSocketNotification("MMM-BTCFees_JSON_RESULT", {url: url, data: result});
+			self.sendSocketNotification("MMM-BTCFees_JSON_RESULT", {url: url, data: result, dataBtc: json.ticker.price});
 		});
-
-	},
-	getBtc: function (url) {
-		var self = this;
-
-		fetch(url).then(response => response.json()).then(json => {
+		fetch(urlBtc).then(response => response.json()).then(json => {
 			// Send the json data back with the url to distinguish it on the receiving part
-			self.sendSocketNotification("MMM-BTCFees_BTC_RESULT", {url: url, data: json.ticker.price});
+			self.sendSocketNotification("MMM-BTCFees_BTC_RESULT", {url: urlBtc, data: json.ticker.price});
 		});
 
 	},
 
 	//Subclass socketNotificationReceived received.
-	socketNotificationReceived: function (notification, url) {
+	socketNotificationReceived: function (notification, url, urlBtc) {
 		if (notification === "MMM-BTCFees_GET_JSON") {
-			this.getJson(url);
-		}
-	},
-	socketNotificationBtcReceived: function (notification, url) {
-		if (notification === "MMM-BTCFees_GET_BTC") {
-			this.getBtc(url);
+			this.getJson(url,urlBtc);
 		}
 	}
 });
