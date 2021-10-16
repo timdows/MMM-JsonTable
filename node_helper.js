@@ -6,7 +6,7 @@ module.exports = NodeHelper.create({
 		console.log('MMM-BTCFees helper started...');
 	},
 
-	getJson: function (url, urlBtc) {
+	getJson: function (url) {
 		var self = this;
 
 		var json_data="";
@@ -19,6 +19,12 @@ module.exports = NodeHelper.create({
 			}
 			self.sendSocketNotification("MMM-BTCFees_JSON_RESULT", {url: url, data: result});
 		});
+
+	},
+
+	getBtc: function (urlBtc) {
+		var self = this;
+
 		fetch(urlBtc).then(response => response.json()).then(json => {
 			// Send the json data back with the url to distinguish it on the receiving part
 			self.sendSocketNotification("MMM-BTCFees_BTC_RESULT", {url: urlBtc, data: json.ticker.price});
@@ -27,9 +33,12 @@ module.exports = NodeHelper.create({
 	},
 
 	//Subclass socketNotificationReceived received.
-	socketNotificationReceived: function (notification, url, urlBtc) {
+	socketNotificationReceived: function (notification, url) {
 		if (notification === "MMM-BTCFees_GET_JSON") {
-			this.getJson(url,urlBtc);
+			this.getJson(url);
+		}
+		if (notification === "MMM-BTCFees_GET_BTC") {
+			this.getBtc(urlBtc);
 		}
 	}
 });
