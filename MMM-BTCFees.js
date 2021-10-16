@@ -2,11 +2,11 @@
 
 Module.register("MMM-BTCFees", {
 
-	jsonData: "https://mempool.space/api/v1/fees/recommended",
+	jsonData: "",
 
 	// Default module config.
 	defaults: {
-		url: "",
+		url: "https://mempool.space/api/v1/fees/recommended",
 		arrayName: null,
 		keepColumns: [],
 		size: 0,
