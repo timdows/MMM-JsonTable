@@ -115,6 +115,7 @@ Module.register("MMM-BTCFees", {
 		for (var key in jsonObject) {
 			var cell = document.createElement("td");
 			var cell2 = document.createElement("td");
+			var cell3 = document.createElement("td");
 			
 			var valueToDisplay = "";
 			var nameToDisplay = "";
