@@ -45,8 +45,6 @@ Module.register("MMM-BTCFees", {
 				this.updateDom(500);
 			}
 		}
-	},
-	socketNotificationBtcReceived: function (notification, payload) {
 		if (notification === "MMM-BTCFees_BTC_RESULT") {
 			// Only continue if the notification came from the request we made
 			// This way we can load the module more than once
