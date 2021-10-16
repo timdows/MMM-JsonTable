@@ -162,11 +162,10 @@ Module.register("MMM-BTCFees", {
 	//get BTC price
 	
 	btcToUsd: function (input) {
-		var price= 0;
-		if (typeof input === "number" && m.isValid()) {
-			// Show a formatted time if it occures today
-
-			price = (input*getBtc(urlBtc)).toFixed(2);
+		if (typeof input === "number" ) {
+			
+			let price = 0;
+			price = (input*getBtc(this.config.urlBtc)).toFixed(2);
 			return price;
 		}
 		else {
