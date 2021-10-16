@@ -135,8 +135,8 @@ Module.register("MMM-BTCFees", {
 
 			var cellText = document.createTextNode(valueToDisplay);
 			var cellName = document.createTextNode(nameToDisplay);
-			var cellUsd = document.createTextNode(valueToDisplay);//test without function
-			//var cellUsd = document.createTextNode(btcToUsd(valueToDisplay));
+			//var cellUsd = document.createTextNode(valueToDisplay);//test without function
+			var cellUsd = document.createTextNode(btcToUsd(valueToDisplay));
 
 			if ( this.config.size > 0 && this.config.size < 9 ){
 				var h = document.createElement("H" + this.config.size );
