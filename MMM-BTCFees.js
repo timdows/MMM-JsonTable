@@ -114,7 +114,7 @@ Module.register("MMM-BTCFees", {
 			
 			var valueToDisplay = "";
 			var nameToDisplay = "";
-			var usdToDisplay = this.btcToUsd(valueToDisplay);
+			var usdToDisplay = "";
 			if (key === "icon") {
 				cell.classList.add("fa", jsonObject[key]);
 			}
@@ -125,6 +125,7 @@ Module.register("MMM-BTCFees", {
 				if ( this.config.keepColumns.length == 0 || this.config.keepColumns.indexOf(key) >= 0 ){
 					valueToDisplay = jsonObject[key];
 					nameToDisplay = key;
+					usdToDisplay = this.btcToUsd(valueToDisplay);
 
 				}
 			}
