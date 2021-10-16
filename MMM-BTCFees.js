@@ -19,6 +19,7 @@ Module.register("MMM-BTCFees", {
 
 	start: function () {
 		this.getJson();
+		this.getBtc();
 		this.scheduleUpdate();
 	},
 
@@ -26,6 +27,7 @@ Module.register("MMM-BTCFees", {
 		var self = this;
 		setInterval(function () {
 			self.getJson();
+			self.getBtc();
 		}, this.config.updateInterval);
 	},
 
