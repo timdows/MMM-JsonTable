@@ -110,8 +110,8 @@ Module.register("MMM-BTCFees", {
 			var valueToDisplay = "";
 			var nameToDisplay = "";
 			var usdToDisplay = "";
-			var btcData = "";
-			var btcData2 = "";
+			var btcDataa = "";
+			var btcDataa2 = "";
 			if (key === "icon") {
 				cell.classList.add("fa", jsonObject[key]);
 			}
