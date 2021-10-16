@@ -38,7 +38,7 @@ module.exports = NodeHelper.create({
 			this.getJson(url);
 		}
 		if (notification === "MMM-BTCFees_GET_BTC") {
-			this.getBtc(urlBtc);
+			this.getBtc(url);
 		}
 	}
 });
