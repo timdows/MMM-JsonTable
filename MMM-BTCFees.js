@@ -106,6 +106,7 @@ Module.register("MMM-BTCFees", {
 			var cell = document.createElement("td");
 			var cell2 = document.createElement("td");
 			var cell3 = document.createElement("td");
+			var cell4 = document.createElement("td");
 			
 			var valueToDisplay = "";
 			var nameToDisplay = "";
@@ -149,14 +150,12 @@ Module.register("MMM-BTCFees", {
 				cell2.appendChild(cellName);
 				cell3.appendChild(cellUsd);
 				cell4.appendChild(cellBtc);
-				cell5.appendChild(cellBtc2);
 			}
 
 			row.appendChild(cell2);
 			row.appendChild(cell);
 			row.appendChild(cell3);
 			row.appendChild(cell4);
-			row.appendChild(cell5);
 		}
 		return row;
 	},
