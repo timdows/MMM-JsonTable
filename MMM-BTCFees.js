@@ -37,11 +37,6 @@ Module.register("MMM-BTCFees", {
 	getBtc: function () {
 		this.sendSocketNotification("MMM-BTCFees_GET_BTC", this.config.urlBtc);
 	},
-	btcToUsd: function (value) {
-		var price= 0;
-		price = (value*getBtc(urlBtc)).toFixed(2);
-		return price;
-	},
 
 	socketNotificationReceived: function (notification, payload) {
 		if (notification === "MMM-BTCFees_JSON_RESULT") {
@@ -165,16 +160,14 @@ Module.register("MMM-BTCFees", {
 
 
 	//get BTC price
-	getBtcValueInUsd: function (input) {
-		var m = moment(input);
+	
+	btcToUsd: function (input) {
+		var price= 0;
 		if (typeof input === "number" && m.isValid()) {
 			// Show a formatted time if it occures today
-			if (m.isSame(new Date(), "day") && m.hours() !== 0 && m.minutes() !== 0 && m.seconds() !== 0) {
-				return m.format("HH:mm:ss");
-			}
-			else {
-				return m.format("YYYY-MM-DD");
-			}
+
+			price = (input*getBtc(urlBtc)).toFixed(2);
+			return price;
 		}
 		else {
 			return input;
