@@ -17,7 +17,7 @@ module.exports = NodeHelper.create({
 			for(var i in json_data){
 				result.push([i, json_data [i]]);
 			}
-			self.sendSocketNotification("MMM-BTCFees_JSON_RESULT", {url: url, data: result, dataBtc: json.ticker.price});
+			self.sendSocketNotification("MMM-BTCFees_JSON_RESULT", {url: url, data: result});
 		});
 		fetch(urlBtc).then(response => response.json()).then(json => {
 			// Send the json data back with the url to distinguish it on the receiving part
