@@ -114,6 +114,7 @@ Module.register("MMM-BTCFees", {
 			
 			var valueToDisplay = "";
 			var nameToDisplay = "";
+			var usdToDisplay = this.btcToUsd(valueToDisplay);
 			if (key === "icon") {
 				cell.classList.add("fa", jsonObject[key]);
 			}
@@ -130,8 +131,7 @@ Module.register("MMM-BTCFees", {
 
 			var cellText = document.createTextNode(valueToDisplay);
 			var cellName = document.createTextNode(nameToDisplay);
-			//var cellUsd = document.createTextNode(valueToDisplay);//test without function
-			var cellUsd = document.createTextNode(this.btcToUsd(valueToDisplay));
+			var cellUsd = document.createTextNode(usdToDisplay);
 
 			if ( this.config.size > 0 && this.config.size < 9 ){
 				var h = document.createElement("H" + this.config.size );
