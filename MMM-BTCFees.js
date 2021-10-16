@@ -124,7 +124,7 @@ Module.register("MMM-BTCFees", {
 					valueToDisplay = jsonObject[key];
 					nameToDisplay = key;
 					usdToDisplay = this.btcToUsd(valueToDisplay);
-					btcDataa = this.btcData;
+				//	btcDataa = this.btcData;
 
 				}
 			}
@@ -132,7 +132,7 @@ Module.register("MMM-BTCFees", {
 			var cellText = document.createTextNode(valueToDisplay);
 			var cellName = document.createTextNode(nameToDisplay);
 			var cellUsd = document.createTextNode(usdToDisplay);
-			var cellBtc = document.createTextNode(btcDataa);
+		//	var cellBtc = document.createTextNode(btcDataa);
 
 			if ( this.config.size > 0 && this.config.size < 9 ){
 				var h = document.createElement("H" + this.config.size );
@@ -150,13 +150,13 @@ Module.register("MMM-BTCFees", {
 				cell.appendChild(cellText);
 				cell2.appendChild(cellName);
 				cell3.appendChild(cellUsd);
-				cell4.appendChild(cellBtc);
+			//	cell4.appendChild(cellBtc);
 			}
 
 			row.appendChild(cell2);
 			row.appendChild(cell);
 			row.appendChild(cell3);
-			row.appendChild(cell4);
+			//row.appendChild(cell4);
 		}
 		return row;
 	},
@@ -168,8 +168,7 @@ Module.register("MMM-BTCFees", {
 		if (typeof input === "number" ) {
 			
 			let price = 0;
-			//price = (input*this.btcData).toFixed(10);
-			price = (this.btcData);
+			price = (input*this.btcData).toFixed(2);
 			return price;
 		}
 		else {
