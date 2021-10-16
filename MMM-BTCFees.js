@@ -161,7 +161,7 @@ Module.register("MMM-BTCFees", {
 		if (typeof input === "number" ) {
 			
 			let price = 0;
-			price = (input*this.btcData).toFixed(2);
+			price = (input*this.btcData).toFixed(10);
 			return price;
 		}
 		else {
