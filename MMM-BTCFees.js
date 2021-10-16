@@ -111,7 +111,6 @@ Module.register("MMM-BTCFees", {
 			var nameToDisplay = "";
 			var usdToDisplay = "";
 			var btcDataa = "";
-			var btcDataa2 = "";
 			if (key === "icon") {
 				cell.classList.add("fa", jsonObject[key]);
 			}
@@ -124,7 +123,6 @@ Module.register("MMM-BTCFees", {
 					nameToDisplay = key;
 					usdToDisplay = this.btcToUsd(valueToDisplay);
 					btcDataa = this.btcData;
-					btcDataa2 = btcData;
 
 				}
 			}
@@ -133,7 +131,6 @@ Module.register("MMM-BTCFees", {
 			var cellName = document.createTextNode(nameToDisplay);
 			var cellUsd = document.createTextNode(usdToDisplay);
 			var cellBtc = document.createTextNode(btcDataa);
-			var cellBtc2 = document.createTextNode(btcDataa2);
 
 			if ( this.config.size > 0 && this.config.size < 9 ){
 				var h = document.createElement("H" + this.config.size );
