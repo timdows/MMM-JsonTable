@@ -105,12 +105,12 @@ Module.register("MMM-BTCFees", {
 		var row = document.createElement("tr");
 		for (var key in jsonObject) {
 			var cell = document.createElement("td");
-			var cell2 = document.createElement("td");
+			//var cell2 = document.createElement("td");
 			var cell3 = document.createElement("td");
-			var cell4 = document.createElement("td");
+			//var cell4 = document.createElement("td");
 			
 			var valueToDisplay = "";
-			var nameToDisplay = "";
+			//var nameToDisplay = "";
 			var usdToDisplay = "";
 			var btcDataa = "";
 			if (key === "icon") {
@@ -122,7 +122,7 @@ Module.register("MMM-BTCFees", {
 			else {
 				if ( this.config.keepColumns.length == 0 || this.config.keepColumns.indexOf(key) >= 0 ){
 					valueToDisplay = jsonObject[key];
-					nameToDisplay = key;
+					//nameToDisplay = key;
 					usdToDisplay = this.btcToUsd(valueToDisplay);
 				//	btcDataa = this.btcData;
 
@@ -130,7 +130,7 @@ Module.register("MMM-BTCFees", {
 			}
 
 			var cellText = document.createTextNode(valueToDisplay);
-			var cellName = document.createTextNode(nameToDisplay);
+			//var cellName = document.createTextNode(nameToDisplay);
 			var cellUsd = document.createTextNode(usdToDisplay);
 		//	var cellBtc = document.createTextNode(btcDataa);
 
