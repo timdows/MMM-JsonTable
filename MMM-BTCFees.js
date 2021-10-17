@@ -142,18 +142,18 @@ Module.register("MMM-BTCFees", {
 				var h3 = document.createElement("H" + this.config.size );
 				h3.appendChild(cellUsd)
 				cell.appendChild(h);
-				cell2.appendChild(h2);
+				//cell2.appendChild(h2);
 				cell3.appendChild(h3);
 			}
 			else
 			{
 				cell.appendChild(cellText);
-				cell2.appendChild(cellName);
+				//cell2.appendChild(cellName);
 				cell3.appendChild(cellUsd);
 			//	cell4.appendChild(cellBtc);
 			}
 
-			row.appendChild(cell2);
+			//row.appendChild(cell2);
 			row.appendChild(cell);
 			row.appendChild(cell3);
 			//row.appendChild(cell4);
