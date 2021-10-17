@@ -173,7 +173,7 @@ Module.register("MMM-BTCFees", {
 			return price;
 		}
 		else {
-			return input;
+			return " ";
 		}
 	}
 
