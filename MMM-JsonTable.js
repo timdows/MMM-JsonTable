@@ -8,6 +8,7 @@ Module.register("MMM-JsonTable", {
   defaults: {
     url: "",
     arrayName: null,
+    noDataText: "Json data is not of type array! Maybe the config arrayName is not used and should be, or is configured wrong.",
     keepColumns: [],
     size: 0,
     tryFormatDate: false,
@@ -67,8 +68,7 @@ Module.register("MMM-JsonTable", {
 
     // Check if items is of type array
     if (!(items instanceof Array)) {
-      wrapper.innerHTML = "Json data is not of type array! " +
-        "Maybe the config arrayName is not used and should be, or is configured wrong";
+      wrapper.innerHTML = this.config.noDataText;
       return wrapper;
     }
 
