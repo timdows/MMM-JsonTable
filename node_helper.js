@@ -1,5 +1,5 @@
-var NodeHelper = require('node_helper');
-var fetch = require('node-fetch');
+let NodeHelper = require('node_helper');
+let fetch = require('node-fetch');
 
 module.exports = NodeHelper.create({
   start: function () {
@@ -7,7 +7,7 @@ module.exports = NodeHelper.create({
   },
 
   getJson: function (url) {
-    var self = this;
+    let self = this;
 
     fetch(url).then(response => response.json()).then(json => {
       // Send the json data back with the url to distinguish it on the receiving part
