@@ -12,6 +12,7 @@ Module.register("MMM-JsonTable", {
 		size: 0,
 		tryFormatDate: false,
 		updateInterval: 15000,
+		animationSpeed: 500,
 		descriptiveRow: null
 	},
 
@@ -39,7 +40,7 @@ Module.register("MMM-JsonTable", {
 			if (payload.url === this.config.url)
 			{
 				this.jsonData = payload.data;
-				this.updateDom(500);
+				this.updateDom(this.config.animationSpeed);
 			}
 		}
 	},

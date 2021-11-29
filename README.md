@@ -20,6 +20,7 @@ npm install
 | tryFormatDate | false | For every column it checks if a valid DateTime is given, and then formats it to HH:mm:ss if it is today or YYYY-MM-DD otherwise |
 | size | 0-3 | Text size at table, 0 is default, and 3 is H3 |
 | updateInterval | 15000 | Milliseconds between the refersh |
+| animationSpeed | `500`       | Speed of the update animation. (Milliseconds)<br>If you don't want that the module blinks during an update, set the value to `0`.<br> **Possible values:** `0` - `5000` |
 | descriptiveRow | "" | Complete html table row that will be added above the array data |
 
 ## Example 1
