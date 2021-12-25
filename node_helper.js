@@ -3,7 +3,7 @@ let fetch = require("node-fetch");
 
 module.exports = NodeHelper.create({
   start: function () {
-    console.log("MMM-JsonTable helper started...");
+    Log.log("MMM-JsonTable helper started...");
   },
 
   getJson: function (url) {
