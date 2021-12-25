@@ -1,5 +1,5 @@
-let NodeHelper = require("node_helper");
-let fetch = require("node-fetch");
+const NodeHelper = require("node_helper");
+const fetch = require("node-fetch");
 const Log = require("logger");
 
 module.exports = NodeHelper.create({
