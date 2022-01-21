@@ -1,5 +1,3 @@
-"use strict";
-
 Module.register("MMM-JsonTable", {
   jsonData: null,
 
