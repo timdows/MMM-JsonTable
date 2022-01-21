@@ -1,14 +1,14 @@
-'use strict';
+"use strict";
 
 Module.register("MMM-JsonTable", {
-
   jsonData: null,
 
   // Default module config.
   defaults: {
     url: "",
     arrayName: null,
-    noDataText: "Json data is not of type array! Maybe the config arrayName is not used and should be, or is configured wrong.",
+    noDataText:
+      "Json data is not of type array! Maybe the config arrayName is not used and should be, or is configured wrong.",
     keepColumns: [],
     size: 0,
     tryFormatDate: false,
@@ -61,8 +61,7 @@ Module.register("MMM-JsonTable", {
     let items = [];
     if (this.config.arrayName) {
       items = this.jsonData[this.config.arrayName];
-    }
-    else {
+    } else {
       items = this.jsonData;
     }
 
@@ -72,7 +71,7 @@ Module.register("MMM-JsonTable", {
       return wrapper;
     }
 
-    items.forEach(element => {
+    items.forEach((element) => {
       let row = this.getTableRow(element);
       tbody.appendChild(row);
     });
@@ -96,12 +95,13 @@ Module.register("MMM-JsonTable", {
       let valueToDisplay = "";
       if (key === "icon") {
         cell.classList.add("fa", jsonObject[key]);
-      }
-      else if (this.config.tryFormatDate) {
+      } else if (this.config.tryFormatDate) {
         valueToDisplay = this.getFormattedValue(jsonObject[key]);
-      }
-      else {
-        if (this.config.keepColumns.length == 0 || this.config.keepColumns.indexOf(key) >= 0) {
+      } else {
+        if (
+          this.config.keepColumns.length === 0 ||
+          this.config.keepColumns.indexOf(key) >= 0
+        ) {
           valueToDisplay = jsonObject[key];
         }
       }
@@ -110,10 +110,9 @@ Module.register("MMM-JsonTable", {
 
       if (this.config.size > 0 && this.config.size < 9) {
         let h = document.createElement("H" + this.config.size);
-        h.appendChild(cellText)
+        h.appendChild(cellText);
         cell.appendChild(h);
-      }
-      else {
+      } else {
         cell.appendChild(cellText);
       }
 
@@ -127,16 +126,18 @@ Module.register("MMM-JsonTable", {
     let m = moment(input);
     if (typeof input === "string" && m.isValid()) {
       // Show a formatted time if it occures today
-      if (m.isSame(new Date(), "day") && m.hours() !== 0 && m.minutes() !== 0 && m.seconds() !== 0) {
+      if (
+        m.isSame(new Date(), "day") &&
+        m.hours() !== 0 &&
+        m.minutes() !== 0 &&
+        m.seconds() !== 0
+      ) {
         return m.format("HH:mm:ss");
-      }
-      else {
+      } else {
         return m.format("YYYY-MM-DD");
       }
-    }
-    else {
+    } else {
       return input;
     }
   }
-
 });
