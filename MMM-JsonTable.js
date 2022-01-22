@@ -15,24 +15,24 @@ Module.register("MMM-JsonTable", {
     descriptiveRow: null
   },
 
-  start: function () {
+  start() {
     this.getJson();
     this.scheduleUpdate();
   },
 
-  scheduleUpdate: function () {
+  scheduleUpdate() {
     let self = this;
-    setInterval(function () {
+    setInterval(() => {
       self.getJson();
     }, this.config.updateInterval);
   },
 
   // Request node_helper to get json from url
-  getJson: function () {
+  getJson() {
     this.sendSocketNotification("MMM-JsonTable_GET_JSON", this.config.url);
   },
 
-  socketNotificationReceived: function (notification, payload) {
+  socketNotificationReceived(notification, payload) {
     if (notification === "MMM-JsonTable_JSON_RESULT") {
       // Only continue if the notification came from the request we made
       // This way we can load the module more than once
@@ -44,7 +44,7 @@ Module.register("MMM-JsonTable", {
   },
 
   // Override dom generator.
-  getDom: function () {
+  getDom() {
     let wrapper = document.createElement("div");
     wrapper.className = "xsmall";
 
@@ -85,7 +85,7 @@ Module.register("MMM-JsonTable", {
     return wrapper;
   },
 
-  getTableRow: function (jsonObject) {
+  getTableRow(jsonObject) {
     let row = document.createElement("tr");
     for (let key in jsonObject) {
       let cell = document.createElement("td");
@@ -120,7 +120,7 @@ Module.register("MMM-JsonTable", {
   },
 
   // Format a date string or return the input
-  getFormattedValue: function (input) {
+  getFormattedValue(input) {
     let m = moment(input);
     if (typeof input === "string" && m.isValid()) {
       // Show a formatted time if it occures today
