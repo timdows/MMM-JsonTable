@@ -95,19 +95,17 @@ Module.register("MMM-JsonTable", {
         cell.classList.add("fa", jsonObject[key]);
       } else if (this.config.tryFormatDate) {
         valueToDisplay = this.getFormattedValue(jsonObject[key]);
-      } else {
-        if (
-          this.config.keepColumns.length === 0 ||
-          this.config.keepColumns.indexOf(key) >= 0
-        ) {
-          valueToDisplay = jsonObject[key];
-        }
+      } else if (
+        this.config.keepColumns.length === 0 ||
+        this.config.keepColumns.indexOf(key) >= 0
+      ) {
+        valueToDisplay = jsonObject[key];
       }
 
       const cellText = document.createTextNode(valueToDisplay);
 
       if (this.config.size > 0 && this.config.size < 9) {
-        const h = document.createElement("H" + this.config.size);
+        const h = document.createElement(`H${this.config.size}`);
         h.appendChild(cellText);
         cell.appendChild(h);
       } else {
@@ -131,11 +129,9 @@ Module.register("MMM-JsonTable", {
         m.seconds() !== 0
       ) {
         return m.format("HH:mm:ss");
-      } else {
-        return m.format("YYYY-MM-DD");
       }
-    } else {
-      return input;
+      return m.format("YYYY-MM-DD");
     }
+    return input;
   }
 });

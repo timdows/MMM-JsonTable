@@ -1,6 +1,9 @@
 const NodeHelper = require("node_helper");
-const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const Log = require("logger");
+
+const fetch = (...args) =>
+  // eslint-disable-next-line no-shadow
+  import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
 module.exports = NodeHelper.create({
   start() {
@@ -15,13 +18,13 @@ module.exports = NodeHelper.create({
       .then((json) => {
         // Send the json data back with the url to distinguish it on the receiving part
         self.sendSocketNotification("MMM-JsonTable_JSON_RESULT", {
-          url: url,
+          url,
           data: json
         });
       });
   },
 
-  //Subclass socketNotificationReceived received.
+  // Subclass socketNotificationReceived received.
   socketNotificationReceived(notification, url) {
     if (notification === "MMM-JsonTable_GET_JSON") {
       this.getJson(url);

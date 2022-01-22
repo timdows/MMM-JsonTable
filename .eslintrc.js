@@ -11,6 +11,7 @@ module.exports = {
     sourceType: "module"
   },
   rules: {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "import/no-unresolved": "off"
   }
 };
