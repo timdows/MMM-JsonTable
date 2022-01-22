@@ -7,13 +7,13 @@ For every column it checks if a valid DateTime is given, and then formats it to 
 
 ## Installation
 
-```
+```shell
 git clone https://github.com/timdows/MMM-JsonTable
 cd MMM-JsonTable
 npm install
 ```
 
-## Config Options
+## Config options
 
 Except `url` all options are optional.
 
@@ -68,13 +68,13 @@ Configuration:
 
 ```javascript
 {
-	module: 'MMM-JsonTable',
-	position: 'top_right',
-	header: 'HouseDB Sevensegment',
-	config: {
-		url: 'https://xyz/abc/get.json', // Required
-		arrayName: 'items' // Optional
-	}
+  module: 'MMM-JsonTable',
+  position: 'top_right',
+  header: 'HouseDB Sevensegment',
+  config: {
+    url: 'https://xyz/abc/get.json', // Required
+    arrayName: 'items' // Optional
+  }
 }
 ```
 
@@ -131,14 +131,14 @@ Configuration:
 
 ```javascript
 {
-	module: 'MMM-JsonTable',
-	position: 'top_right',
-	header: 'HouseDB Current Usages',
-	config: {
-		url: 'https://xyz/abc/get.json', // Required
-		arrayName: 'currentUsages', // Optional
-		tryFormatDate: true
-	}
+  module: 'MMM-JsonTable',
+  position: 'top_right',
+  header: 'HouseDB Current Usages',
+  config: {
+    url: 'https://xyz/abc/get.json', // Required
+    arrayName: 'currentUsages', // Optional
+    tryFormatDate: true
+  }
 }
 ```
 
@@ -218,13 +218,17 @@ Configuration:
 
 ```javascript
 {
-	module: 'MMM-JsonTable',
-	position: 'top_right',
-	header: 'HouseDB Kwh Statistics',
-	config: {
-		url: 'https://xyz/abc/get.json',
-		arrayName: 'deviceKwhUsages',
-		descriptiveRow: '<tr><td>Name</td><td>Today</td><td>ThisWeek</td><td>LastWeek</td><td>ThisMonth</td><td>LastMonth</td></tr>'
-	}
+  module: 'MMM-JsonTable',
+  position: 'top_right',
+  header: 'HouseDB Kwh Statistics',
+  config: {
+    url: 'https://xyz/abc/get.json',
+    arrayName: 'deviceKwhUsages',
+    descriptiveRow: '<tr><td>Name</td><td>Today</td><td>ThisWeek</td><td>LastWeek</td><td>ThisMonth</td><td>LastMonth</td></tr>'
+  }
 }
 ```
+
+## Developer hints
+
+Please use `npm run test` before doing a PR.
