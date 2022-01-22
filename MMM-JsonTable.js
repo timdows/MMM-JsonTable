@@ -21,7 +21,7 @@ Module.register("MMM-JsonTable", {
   },
 
   scheduleUpdate() {
-    let self = this;
+    const self = this;
     setInterval(() => {
       self.getJson();
     }, this.config.updateInterval);
@@ -45,7 +45,7 @@ Module.register("MMM-JsonTable", {
 
   // Override dom generator.
   getDom() {
-    let wrapper = document.createElement("div");
+    const wrapper = document.createElement("div");
     wrapper.className = "xsmall";
 
     if (!this.jsonData) {
@@ -53,8 +53,8 @@ Module.register("MMM-JsonTable", {
       return wrapper;
     }
 
-    let table = document.createElement("table");
-    let tbody = document.createElement("tbody");
+    const table = document.createElement("table");
+    const tbody = document.createElement("tbody");
 
     let items = [];
     if (this.config.arrayName) {
@@ -70,13 +70,13 @@ Module.register("MMM-JsonTable", {
     }
 
     items.forEach((element) => {
-      let row = this.getTableRow(element);
+      const row = this.getTableRow(element);
       tbody.appendChild(row);
     });
 
     // Add in Descriptive Row Header
     if (this.config.descriptiveRow) {
-      let header = table.createTHead();
+      const header = table.createTHead();
       header.innerHTML = this.config.descriptiveRow;
     }
 
@@ -86,9 +86,9 @@ Module.register("MMM-JsonTable", {
   },
 
   getTableRow(jsonObject) {
-    let row = document.createElement("tr");
-    for (let key in jsonObject) {
-      let cell = document.createElement("td");
+    const row = document.createElement("tr");
+    for (const key in jsonObject) {
+      const cell = document.createElement("td");
 
       let valueToDisplay = "";
       if (key === "icon") {
@@ -104,10 +104,10 @@ Module.register("MMM-JsonTable", {
         }
       }
 
-      let cellText = document.createTextNode(valueToDisplay);
+      const cellText = document.createTextNode(valueToDisplay);
 
       if (this.config.size > 0 && this.config.size < 9) {
-        let h = document.createElement("H" + this.config.size);
+        const h = document.createElement("H" + this.config.size);
         h.appendChild(cellText);
         cell.appendChild(h);
       } else {
@@ -121,7 +121,7 @@ Module.register("MMM-JsonTable", {
 
   // Format a date string or return the input
   getFormattedValue(input) {
-    let m = moment(input);
+    const m = moment(input);
     if (typeof input === "string" && m.isValid()) {
       // Show a formatted time if it occures today
       if (

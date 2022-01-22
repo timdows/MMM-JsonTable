@@ -8,7 +8,7 @@ module.exports = NodeHelper.create({
   },
 
   getJson(url) {
-    let self = this;
+    const self = this;
 
     fetch(url)
       .then((response) => response.json())
