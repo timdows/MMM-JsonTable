@@ -10,6 +10,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module"
   },
+  plugins: ["prettier"],
   rules: {
     "prettier/prettier": "error",
     "import/no-unresolved": "off"
