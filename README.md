@@ -13,6 +13,9 @@ cd MMM-JsonTable
 npm install
 ```
 
+## Build and Test status
+![Run test](https://github.com/timdows/MMM-JsonTable/actions/workflows/runtest.yml/badge.svg)
+
 ## Config options
 
 Except `url` all options are optional.
