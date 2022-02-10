@@ -89,19 +89,19 @@ Module.register("MMM-JsonTable", {
 
   getTableRow(jsonObject) {
     const row = document.createElement("tr");
-    for (const key in jsonObject) {
+    Object.entries(jsonObject).forEach(([key, value]) => {
       const cell = document.createElement("td");
 
       let valueToDisplay = "";
       if (key === "icon") {
-        cell.classList.add("fa", jsonObject[key]);
+        cell.classList.add("fa", value);
       } else if (this.config.tryFormatDate) {
-        valueToDisplay = this.getFormattedValue(jsonObject[key]);
+        valueToDisplay = this.getFormattedValue(value);
       } else if (
         this.config.keepColumns.length === 0 ||
         this.config.keepColumns.indexOf(key) >= 0
       ) {
-        valueToDisplay = jsonObject[key];
+        valueToDisplay = value;
       }
 
       const cellText = document.createTextNode(valueToDisplay);
@@ -115,7 +115,7 @@ Module.register("MMM-JsonTable", {
       }
 
       row.appendChild(cell);
-    }
+    });
     return row;
   },
 
