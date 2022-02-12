@@ -1,3 +1,5 @@
+/* global Module moment */
+
 Module.register("MMM-JsonTable", {
   jsonData: null,
 
