@@ -14,7 +14,7 @@ npm install
 ```
 
 ## Build and Test status
-![Run test](https://github.com/timdows/MMM-JsonTable/actions/workflows/runtest.yml/badge.svg)
+[![Node.js CI](https://github.com/timdows/MMM-JsonTable/actions/workflows/runtest.yml/badge.svg)](https://github.com/timdows/MMM-JsonTable/actions/workflows/runtest.yml)
 
 ## Config options
 
