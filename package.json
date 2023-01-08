@@ -14,8 +14,8 @@
     "prettier": "^2.8.2"
   },
   "scripts": {
-    "lint:js": "eslint *.js",
-    "lint:fix": "npm run lint:js -- --fix",
-    "test": "npm run lint:js"
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint --fix . && prettier --write .",
+    "test": "npm run lint"
   }
 }
