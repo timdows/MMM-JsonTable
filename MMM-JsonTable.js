@@ -7,6 +7,7 @@ Module.register("MMM-JsonTable", {
   defaults: {
     url: "",
     arrayName: null,
+    arrayName2: null,
     noDataText:
       "Json data is not of type array! Maybe the config arrayName is not used and should be, or is configured wrong.",
     keepColumns: [],
