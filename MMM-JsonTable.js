@@ -59,12 +59,14 @@ Module.register("MMM-JsonTable", {
     const table = document.createElement("table");
     const tbody = document.createElement("tbody");
 
-    let items = [];
-    if (this.config.arrayName) {
-      items = this.jsonData[this.config.arrayName][this.config.arrayName2];
-    } else {
-      items = this.jsonData;
-    }
+let items = [];
+if (this.config.arrayName) {
+  const arrayName2 = this.config.arrayName2 || [];
+  items = this.jsonData[this.config.arrayName][arrayName2];
+} else {
+  items = this.jsonData;
+}
+
 
     // Check if items is of type array
     if (!(items instanceof Array)) {
