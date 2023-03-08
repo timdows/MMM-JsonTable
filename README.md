@@ -1,5 +1,8 @@
 # MMM-JsonTable
 
+All credit to @timdows here. 
+just added the functionality to dive in to a second array
+
 A module for the [MagicMirror²](https://github.com/MichMich/MagicMirror) project which creates a table filled with a list gathered from a json request.
 
 All the variables of the objects in the array are represented by a table column.
@@ -231,6 +234,87 @@ Configuration:
     url: 'https://xyz/abc/get.json',
     arrayName: 'deviceKwhUsages',
     descriptiveRow: '<tr><td>Name</td><td>Today</td><td>ThisWeek</td><td>LastWeek</td><td>ThisMonth</td><td>LastMonth</td></tr>'
+  }
+}
+```
+
+
+Getting the data under "Forbrok"
+```
+{
+    "status": "success",
+    "url": "/soppel",
+    "method": "GET",
+    "data": [
+        {
+            "Forbrok": [
+                {
+                    "deviceName": "Power consumption",
+                    "currentValue": "Now: 3009 watts",
+                    "currentTarget": " ",
+                    "lastUpdate": "Limit: 5000 watt"
+                },
+                {
+                    "deviceName": "Varmepumpe",
+                    "currentValue": "Now:25.8°C,",
+                    "currentTarget": "Target:21°C,",
+                    "lastUpdate": "Home override: true"
+                },
+                {
+                    "deviceName": "Hotwater",
+                    "currentValue": "Now:44.38°C,",
+                    "currentTarget": "Last heat complete",
+                    "lastUpdate": "66.9 : 05:46 @ 19-12-2022 "
+                },
+                {
+                    "deviceName": "Last update",
+                    "currentValue": " ",
+                    "currentTarget": " ",
+                    "lastUpdate": "23:27 19-12-2022"
+                }
+            ]
+        },
+        {
+            "mren": [
+                {
+                    "avfallstype": "Restavfall",
+                    "dato": "30-12-2022"
+                },
+                {
+                    "avfallstype": "Matavfall",
+                    "dato": "30-12-2022"
+                },
+                {
+                    "avfallstype": "Papiravfall",
+                    "dato": "30-12-2022"
+                },
+                {
+                    "avfallstype": "Plastemballasje",
+                    "dato": "30-12-2022"
+                },
+                {
+                    "avfallstype": "Glass- og metallemballasje",
+                    "dato": "30-12-2022"
+                }
+            ]
+        }
+    ]
+}
+```
+
+Configuration:
+
+```javascript
+{
+  module: 'MMM-JsonTable',
+  position: 'top_left',
+  header: 'Homey Local API',
+  config: {
+    url: 'https://xyz/abc/get.json',
+    arrayName: 'Data',
+    arrayName2: 'Forbrok',
+
+    
   }
 }
 ```
