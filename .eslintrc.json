@@ -16,5 +16,16 @@
   "root": true,
   "rules": {
     "import/no-unresolved": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.md"],
+      "parser": "eslint-plugin-markdownlint/parser",
+      "extends": ["plugin:markdownlint/recommended"],
+      "rules": {
+        "markdownlint/md013": "off",
+        "markdownlint/md033": "off"
+      }
+    }
+  ]
 }
