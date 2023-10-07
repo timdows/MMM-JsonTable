@@ -7,8 +7,17 @@ For every column it checks if a valid DateTime is given, and then formats it to 
 
 ## Installation
 
+Just clone the module into your modules folder of your MagicMirror².
+
 ```shell
 git clone https://github.com/timdows/MMM-JsonTable
+```
+
+That's it!
+
+If you are a developer please also install the depenendies for linter and prettier:
+
+```shell
 cd MMM-JsonTable
 npm install
 ```
