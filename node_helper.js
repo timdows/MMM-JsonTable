@@ -1,10 +1,6 @@
 const NodeHelper = require("node_helper");
 const Log = require("logger");
 
-const fetch = (...args) =>
-  // eslint-disable-next-line no-shadow
-  import("node-fetch").then(({ default: fetch }) => fetch(...args));
-
 module.exports = NodeHelper.create({
   start() {
     Log.log("MMM-JsonTable helper started...");
