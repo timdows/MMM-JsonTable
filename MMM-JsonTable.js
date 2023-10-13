@@ -7,7 +7,7 @@ Module.register("MMM-JsonTable", {
   defaults: {
     url: "",
     arrayName: null,
-    arrayName2: null,
+    // Note: The arrayName string is case-sensitive! Ensure that the path provided matches the exact case of the keys in the JSON data.
     noDataText:
       "Json data is not of type array! Maybe the config arrayName is not used and should be, or is configured wrong.",
     keepColumns: [],
@@ -59,17 +59,35 @@ Module.register("MMM-JsonTable", {
     const table = document.createElement("table");
     const tbody = document.createElement("tbody");
 
-let items = [];
-if (this.config.arrayName) {
-  if (this.config.arrayName2) {
-    items = this.jsonData[this.config.arrayName][this.config.arrayName2];
-  } else {
-    items = this.jsonData[this.config.arrayName];
-  }
-} else {
-  items = this.jsonData;
-}
-
+    let items = [];
+     
+    if (this.config.arrayName) {  
+        items = resolveDataPath(this.jsonData, this.config.arrayName);
+    } else {
+        items = this.jsonData;
+    }
+    
+    function resolveDataPath(data, path) {
+        // If path is a string and doesn't contain '.' 
+        if (typeof path === "string" && !path.includes('.')) {
+            return data[path];
+        }
+        // If path is a string with '.' indicating a deeper path,
+        if (typeof path === "string" && path.includes('.')) {
+            path = path.split('.');
+        }
+    
+          // If path is array, reduce it to resolve nested data
+          if (Array.isArray(path)) {
+            return path.reduce((obj, key) => (obj && obj[key] !== undefined) ? obj[key] : null, data);
+        }
+      
+    
+        // Fallback (unexpected format)
+        console.error("Unexpected path format:", path);
+        return null;
+    }
+  
 
 
     // Check if items is of type array
