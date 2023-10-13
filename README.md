@@ -10,8 +10,17 @@ For every column it checks if a valid DateTime is given, and then formats it to 
 
 ## Installation
 
+Just clone the module into your modules folder of your MagicMirror².
+
 ```shell
-git clone https://github.com/late4marshmellow/MMM-JsonTable
+git clone https://github.com/timdows/MMM-JsonTable
+```
+
+That's it!
+
+If you are a developer please also install the depenendies for linter and prettier:
+
+```shell
 cd MMM-JsonTable
 npm install
 ```
@@ -42,7 +51,7 @@ Except `url` all options are optional.
 
 End result:
 
-![](example1.png)
+![Example 1](example1.png)
 
 Raw json response:
 
@@ -89,7 +98,7 @@ Configuration:
 
 ## Example 2
 
-![](example2.png)
+![Example 2](example2.png)
 
 Raw json response:
 
@@ -153,7 +162,7 @@ Configuration:
 
 ## Example 3 (with font awesome icons)
 
-![](https://user-images.githubusercontent.com/1011699/53985507-104ecc00-411c-11e9-9ca4-c994f0ae62e1.png)
+![Example 3](https://user-images.githubusercontent.com/1011699/53985507-104ecc00-411c-11e9-9ca4-c994f0ae62e1.png)
 
 Raw json response:
 
@@ -185,7 +194,7 @@ Raw json response:
 
 ## Example 4 (with descriptive row)
 
-![](example4.png)
+![Example 4](example4.png)
 
 Raw json response:
 
