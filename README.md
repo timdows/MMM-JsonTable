@@ -11,7 +11,7 @@ For every column it checks if a valid DateTime is given, and then formats it to 
 ## Installation
 
 ```shell
-git clone https://github.com/timdows/MMM-JsonTable
+git clone https://github.com/late4marshmellow/MMM-JsonTable
 cd MMM-JsonTable
 npm install
 ```
