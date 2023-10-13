@@ -1,6 +1,6 @@
 # MMM-JsonTable
 
-All credit to @timdows here. 
+All credit to @timdows her.
 just added the functionality to dive in to a second array
 
 A module for the [MagicMirror²](https://github.com/MichMich/MagicMirror) project which creates a table filled with a list gathered from a json request.
@@ -240,15 +240,16 @@ Configuration:
   position: 'top_right',
   header: 'HouseDB Kwh Statistics',
   config: {
-    url: 'https://xyz/abc/get.json',
+
+ url: 'https://xyz/abc/get.json',
     arrayName: 'deviceKwhUsages',
     descriptiveRow: '<tr><td>Name</td><td>Today</td><td>ThisWeek</td><td>LastWeek</td><td>ThisMonth</td><td>LastMonth</td></tr>'
   }
 }
 ```
 
-
 Getting the data under "Forbrok"
+
 ```
 {
     "status": "success",
@@ -323,7 +324,7 @@ Configuration:
     arrayName: 'Data',
     arrayName2: 'Forbrok',
 
-    
+
   }
 }
 ```

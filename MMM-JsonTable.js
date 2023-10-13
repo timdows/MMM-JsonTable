@@ -59,36 +59,37 @@ Module.register("MMM-JsonTable", {
     const table = document.createElement("table");
     const tbody = document.createElement("tbody");
 
-    let items = [];
-     
-    if (this.config.arrayName) {  
-        items = resolveDataPath(this.jsonData, this.config.arrayName);
-    } else {
-        items = this.jsonData;
-    }
-    
     function resolveDataPath(data, path) {
-        // If path is a string and doesn't contain '.' 
-        if (typeof path === "string" && !path.includes('.')) {
-            return data[path];
-        }
-        // If path is a string with '.' indicating a deeper path,
-        if (typeof path === "string" && path.includes('.')) {
-            path = path.split('.');
-        }
-    
-          // If path is array, reduce it to resolve nested data
-          if (Array.isArray(path)) {
-            return path.reduce((obj, key) => (obj && obj[key] !== undefined) ? obj[key] : null, data);
-        }
-      
-    
-        // Fallback (unexpected format)
-        console.error("Unexpected path format:", path);
-        return null;
-    }
-  
+      // If path is a string and doesn't contain '.'
+      if (typeof path === "string" && !path.includes(".")) {
+        return data[path];
+      }
+      // If path is a string with '.' indicating a deeper path,
+      let pathArray;
+      if (typeof path === "string" && path.includes(".")) {
+        pathArray = path.split(".");
+      }
 
+      // If path is array, reduce it to resolve nested data
+      if (Array.isArray(pathArray)) {
+        return pathArray.reduce(
+          (obj, key) => (obj && obj[key] !== undefined ? obj[key] : null),
+          data
+        );
+      }
+
+      // Fallback (unexpected format)
+      // console.error("Unexpected path format:", path);
+      return null;
+    }
+
+    let items = [];
+
+    if (this.config.arrayName) {
+      items = resolveDataPath(this.jsonData, this.config.arrayName);
+    } else {
+      items = this.jsonData;
+    }
 
     // Check if items is of type array
     if (!(items instanceof Array)) {
