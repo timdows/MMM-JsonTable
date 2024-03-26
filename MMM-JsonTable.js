@@ -125,7 +125,7 @@ Module.register("MMM-JsonTable", {
     if (typeof input === "string" && m.isValid()) {
       // Show a formatted time if it occures today
       if (
-        m.isSame(new Date(), "day") &&
+        m.isSame(new Date(Date.now()), "day") &&
         m.hours() !== 0 &&
         m.minutes() !== 0 &&
         m.seconds() !== 0
