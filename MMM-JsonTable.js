@@ -17,12 +17,12 @@ Module.register("MMM-JsonTable", {
     descriptiveRow: null
   },
 
-  start() {
+  start () {
     this.getJson();
     this.scheduleUpdate();
   },
 
-  scheduleUpdate() {
+  scheduleUpdate () {
     const self = this;
     setInterval(() => {
       self.getJson();
@@ -30,11 +30,11 @@ Module.register("MMM-JsonTable", {
   },
 
   // Request node_helper to get json from url
-  getJson() {
+  getJson () {
     this.sendSocketNotification("MMM-JsonTable_GET_JSON", this.config.url);
   },
 
-  socketNotificationReceived(notification, payload) {
+  socketNotificationReceived (notification, payload) {
     if (notification === "MMM-JsonTable_JSON_RESULT") {
       // Only continue if the notification came from the request we made
       // This way we can load the module more than once
@@ -46,7 +46,7 @@ Module.register("MMM-JsonTable", {
   },
 
   // Override dom generator.
-  getDom() {
+  getDom () {
     const wrapper = document.createElement("div");
     wrapper.className = "xsmall";
 
@@ -87,7 +87,7 @@ Module.register("MMM-JsonTable", {
     return wrapper;
   },
 
-  getTableRow(jsonObject) {
+  getTableRow (jsonObject) {
     const row = document.createElement("tr");
     Object.entries(jsonObject).forEach(([key, value]) => {
       const cell = document.createElement("td");
@@ -107,9 +107,9 @@ Module.register("MMM-JsonTable", {
       const cellText = document.createTextNode(valueToDisplay);
 
       if (this.config.size > 0 && this.config.size < 9) {
-        const h = document.createElement(`H${this.config.size}`);
-        h.appendChild(cellText);
-        cell.appendChild(h);
+        const heading = document.createElement(`H${this.config.size}`);
+        heading.appendChild(cellText);
+        cell.appendChild(heading);
       } else {
         cell.appendChild(cellText);
       }
@@ -120,19 +120,19 @@ Module.register("MMM-JsonTable", {
   },
 
   // Format a date string or return the input
-  getFormattedValue(input) {
-    const m = moment(input);
-    if (typeof input === "string" && m.isValid()) {
+  getFormattedValue (input) {
+    const momentObj = moment(input);
+    if (typeof input === "string" && momentObj.isValid()) {
       // Show a formatted time if it occures today
       if (
-        m.isSame(new Date(Date.now()), "day") &&
-        m.hours() !== 0 &&
-        m.minutes() !== 0 &&
-        m.seconds() !== 0
+        momentObj.isSame(new Date(Date.now()), "day") &&
+        momentObj.hours() !== 0 &&
+        momentObj.minutes() !== 0 &&
+        momentObj.seconds() !== 0
       ) {
-        return m.format("HH:mm:ss");
+        return momentObj.format("HH:mm:ss");
       }
-      return m.format("YYYY-MM-DD");
+      return momentObj.format("YYYY-MM-DD");
     }
     return input;
   }

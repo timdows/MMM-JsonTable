@@ -2,11 +2,11 @@ const NodeHelper = require("node_helper");
 const Log = require("logger");
 
 module.exports = NodeHelper.create({
-  start() {
+  start () {
     Log.log("MMM-JsonTable helper started...");
   },
 
-  getJson(url) {
+  getJson (url) {
     const self = this;
 
     fetch(url)
@@ -21,7 +21,7 @@ module.exports = NodeHelper.create({
   },
 
   // Subclass socketNotificationReceived received.
-  socketNotificationReceived(notification, url) {
+  socketNotificationReceived (notification, url) {
     if (notification === "MMM-JsonTable_GET_JSON") {
       this.getJson(url);
     }
