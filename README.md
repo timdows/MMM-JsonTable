@@ -244,6 +244,50 @@ Configuration:
 }
 ```
 
+## Example 5 (with font awesome icons, colors and descriptive row)
+
+![Example 5](example5.png)
+
+Raw json response:
+
+```json
+{
+  "trash": [
+    {
+      "icon": "fa-trash",
+      "za-type": "Paper",
+      "zb-date": "15 July"
+    },
+    {
+      "icon": {
+        "color": "#FF6E00",
+        "value": "fa-trash"
+    },
+      "za-type": {
+        "color": "#FF6E00",
+        "value": "Plastic"
+      },
+      "zb-date": {
+        "color": "#FF6E00",
+        "value": "25 July"
+      }
+    },
+    {
+      "icon": {
+        "color": "red",
+        "value": "fa-trash"
+      },
+      "za-type": {
+        "value": "GFT" // Only value given, display value in default color
+      },
+      "zb-date": {
+        "color": "yellow" // Only color given, so nothing to display
+      }
+    }
+  ]
+}
+```
+
 ## Developer hints
 
 Please use `npm run test` before doing a PR.

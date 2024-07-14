@@ -93,15 +93,31 @@ Module.register("MMM-JsonTable", {
       const cell = document.createElement("td");
 
       let valueToDisplay = "";
+      let cellValue = "";
+
+      if (value.constructor == Object) {
+        if ("value" in value) {
+          cellValue = value["value"];
+        } else {
+          cellValue = "";
+        }
+
+        if ("color" in value) {
+          cell.style.color = value["color"];
+        }
+      } else {
+        cellValue = value;
+      }
+
       if (key === "icon") {
-        cell.classList.add("fa", value);
+        cell.classList.add("fa", cellValue);
       } else if (this.config.tryFormatDate) {
-        valueToDisplay = this.getFormattedValue(value);
+        valueToDisplay = this.getFormattedValue(cellValue);
       } else if (
         this.config.keepColumns.length === 0 ||
         this.config.keepColumns.indexOf(key) >= 0
       ) {
-        valueToDisplay = value;
+        valueToDisplay = cellValue;
       }
 
       const cellText = document.createTextNode(valueToDisplay);
