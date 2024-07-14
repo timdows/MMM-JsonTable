@@ -95,15 +95,15 @@ Module.register("MMM-JsonTable", {
       let valueToDisplay = "";
       let cellValue = "";
 
-      if (value.constructor == Object) {
+      if (value.constructor === Object) {
         if ("value" in value) {
-          cellValue = value["value"];
+          cellValue = value.value;
         } else {
           cellValue = "";
         }
 
         if ("color" in value) {
-          cell.style.color = value["color"];
+          cell.style.color = value.color;
         }
       } else {
         cellValue = value;
