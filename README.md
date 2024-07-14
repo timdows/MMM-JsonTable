@@ -288,6 +288,22 @@ Raw json response:
 }
 ```
 
+Configuration:
+
+```javascript
+{
+  module: 'MMM-JsonTable',
+  position: 'top_left',
+  header: 'Trash calendar',
+  config: {
+    url: 'https://xyz/abc/get.json',
+    arrayName: 'trash',
+    descriptiveRow: '<tr><td></td><td>Type</td><td>Day</td></tr>',
+    updateInterval: 60000
+  }
+}
+```
+
 ## Developer hints
 
 Please use `npm run test` before doing a PR.
