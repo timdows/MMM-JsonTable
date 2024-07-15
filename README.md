@@ -278,10 +278,10 @@ Raw json response:
         "value": "fa-trash"
       },
       "za-type": {
-        "value": "GFT" // Only value given, display value in default color
+        "value": "GFT"
       },
       "zb-date": {
-        "color": "yellow" // Only color given, so nothing to display
+        "color": "yellow"
       }
     }
   ]
