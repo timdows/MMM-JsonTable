@@ -244,6 +244,66 @@ Configuration:
 }
 ```
 
+## Example 5 (with font awesome icons, colors and descriptive row)
+
+![Example 5](example5.png)
+
+Raw json response:
+
+```json
+{
+  "trash": [
+    {
+      "icon": "fa-trash",
+      "za-type": "Paper",
+      "zb-date": "15 July"
+    },
+    {
+      "icon": {
+        "color": "#FF6E00",
+        "value": "fa-trash"
+    },
+      "za-type": {
+        "color": "#FF6E00",
+        "value": "Plastic"
+      },
+      "zb-date": {
+        "color": "#FF6E00",
+        "value": "25 July"
+      }
+    },
+    {
+      "icon": {
+        "color": "red",
+        "value": "fa-trash"
+      },
+      "za-type": {
+        "value": "GFT"
+      },
+      "zb-date": {
+        "color": "yellow"
+      }
+    }
+  ]
+}
+```
+
+Configuration:
+
+```javascript
+{
+  module: 'MMM-JsonTable',
+  position: 'top_left',
+  header: 'Trash calendar',
+  config: {
+    url: 'https://xyz/abc/get.json',
+    arrayName: 'trash',
+    descriptiveRow: '<tr><td></td><td>Type</td><td>Day</td></tr>',
+    updateInterval: 60000
+  }
+}
+```
+
 ## Developer hints
 
 Please use `npm run test` before doing a PR.
