@@ -262,7 +262,7 @@ Raw json response:
       "icon": {
         "color": "#FF6E00",
         "value": "fa-trash"
-    },
+      },
       "za-type": {
         "color": "#FF6E00",
         "value": "Plastic"
