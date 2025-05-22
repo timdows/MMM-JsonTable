@@ -31,14 +31,14 @@ Module.register("MMM-JsonTable", {
 
   // Request node_helper to get json from url
   getJson () {
-    this.sendSocketNotification("MMM-JsonTable_GET_JSON", this.config.url);
+    this.sendSocketNotification("MMM-JsonTable_GET_JSON", {url:this.config.url,id:this.identifier});
   },
 
   socketNotificationReceived (notification, payload) {
     if (notification === "MMM-JsonTable_JSON_RESULT") {
       // Only continue if the notification came from the request we made
       // This way we can load the module more than once
-      if (payload.url === this.config.url) {
+      if (payload.id === this.identifier) {
         this.jsonData = payload.data;
         this.updateDom(this.config.animationSpeed);
       }

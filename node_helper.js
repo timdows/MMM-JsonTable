@@ -6,24 +6,24 @@ module.exports = NodeHelper.create({
     Log.log("MMM-JsonTable helper started...");
   },
 
-  getJson (url) {
+  getJson (payload) {
     const self = this;
 
-    fetch(url)
+    fetch(payload.url)
       .then((response) => response.json())
       .then((json) => {
         // Send the json data back with the url to distinguish it on the receiving part
         self.sendSocketNotification("MMM-JsonTable_JSON_RESULT", {
-          url,
+          id:payload.id,
           data: json
         });
       });
   },
 
   // Subclass socketNotificationReceived received.
-  socketNotificationReceived (notification, url) {
+  socketNotificationReceived (notification, payload ) {
     if (notification === "MMM-JsonTable_GET_JSON") {
-      this.getJson(url);
+      this.getJson(payload);
     }
   }
 });
