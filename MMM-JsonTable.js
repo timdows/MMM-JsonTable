@@ -165,12 +165,28 @@ Module.register("MMM-JsonTable", {
   buildCell (key, value) {
     const cell = document.createElement("td");
     let valueToDisplay = "";
-    if (key === "icon") {
-      cell.classList.add("fa", value);
-    } else if (this.config.tryFormatDate) {
-      valueToDisplay = this.getFormattedValue(value);
+    let cellValue = "";
+
+    if (value !== null && typeof value === "object" && !Array.isArray(value)) {
+      if ("value" in value) {
+        cellValue = value.value;
+      } else {
+        cellValue = "";
+      }
+
+      if ("color" in value) {
+        cell.style.color = value.color;
+      }
     } else {
-      valueToDisplay = value;
+      cellValue = value;
+    }
+
+    if (key === "icon") {
+      cell.classList.add("fa", cellValue);
+    } else if (this.config.tryFormatDate) {
+      valueToDisplay = this.getFormattedValue(cellValue);
+    } else {
+      valueToDisplay = cellValue;
     }
     let textContent = "";
     if (valueToDisplay === null || typeof valueToDisplay === "undefined") {
